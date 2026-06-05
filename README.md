@@ -1,88 +1,61 @@
-# Telco Customer Churn Analysis
+# Telco Customer Churn Prediction & Retention Strategy
 
-## Overview
+## 📌 Executive Summary
+This project is an end-to-end Data Science and Machine Learning pipeline designed to predict customer attrition in the telecommunications sector. 
 
-This project performs Exploratory Data Analysis (EDA) on a telecom customer churn dataset to understand the factors influencing customer attrition.
-
-The goal is to identify patterns and relationships between customer attributes and churn behavior before building machine learning models.
-
----
-
-## Technologies Used
-
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+Currently in the **Exploratory Data Analysis (EDA) and Preprocessing phase**, the project focuses on extracting actionable business intelligence from over 7,000 customer records. By statistically validating churn drivers—such as contract lock-in periods, pricing sensitivity, and technical support access—this analysis lays the groundwork for a predictive machine learning model.
 
 ---
 
-## Dataset Features
-
-The dataset contains customer information such as:
-
-- Tenure Months
-- Monthly Charges
-- Total Charges
-- Contract Type
-- Payment Method
-- Internet Service
-- Phone Service
-- Churn Label
+## 🛠️ Technology Stack & Environment
+* **Core Language:** Python 3
+* **Data Engineering & Analysis:** Pandas, NumPy
+* **Data Visualization:** Matplotlib, Seaborn
+* **Environment:** Jupyter Notebooks (VS Code)
 
 ---
 
-## Exploratory Data Analysis
-
-The following analyses were performed:
-
-### 1. Tenure Distribution
-
-Histogram and KDE plot to understand customer tenure patterns.
-
-### 2. Churn vs Tenure
-
-Boxplot comparing tenure distributions for churned and retained customers.
-
-### 3. Churn vs Monthly Charges
-
-Boxplot analyzing the relationship between monthly charges and churn.
-
-### 4. Contract Type vs Churn
-
-Countplot to identify how different contract types affect churn.
+## ⚙️ Data Engineering Highlights
+Before analyzing the data, rigorous preprocessing and memory optimization techniques were applied to ensure pipeline scalability:
+* **Memory Optimization:** Downcasted default 64-bit numerical columns (e.g., `int64` to `int8`) to drastically reduce the dataset's RAM footprint.
+* **Hidden Anomaly Handling:** Utilized `pd.to_numeric` with `errors='coerce'` to identify and safely convert hidden string anomalies (blank spaces representing zero-tenure users) into standard `NaN` missing values for proper mathematical imputation.
 
 ---
 
-## Key Insights
+## 📊 Key Business Insights (Statistical Findings)
+Through visual and cross-tabulated probability analysis, several critical drivers of churn were mathematically confirmed:
 
-- Customers with lower tenure are more likely to churn.
-- Customers with higher monthly charges show higher churn rates.
-- Long-term contract customers tend to have lower churn rates.
-- Tenure is one of the strongest indicators of customer retention.
+1. **The Month-to-Month Trap (Contract Type):**
+   * Month-to-month customers have an alarming **42.7% probability** of churning.
+   * Securing a customer on a two-year contract drops their churn probability to a negligible **2.8%**.
+2. **Price Sensitivity (Monthly Charges):**
+   * The median monthly bill for a churned customer is **$79.65**, compared to just **$64.42** for a retained customer, proving that high premium costs are actively driving users to competitors.
+3. **The Tech Support Safety Net:**
+   * Customers lacking technical support churn at vastly disproportionate rates compared to those with support, indicating that network frustration without immediate resolution is a primary catalyst for cancellation.
+4. **Billing Friction (Payment Methods):**
+   * Manual payment methods (Electronic checks) see significantly higher churn than automated methods (Credit Card/Bank Transfer), highlighting the psychological "lock-in" benefit of auto-pay systems.
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 ChurnPredictionAndCustomerSegmentation/
 │
-├── data/
-├── notebooks/
-├── images/
-├── README.md
-└── requirements.txt
+├── data/                  # Raw and processed datasets (ignored in git)
+├── notebooks/             # Jupyter notebooks for EDA and Model Training
+│   └── ChurnEDA.ipynb     # Comprehensive Exploratory Data Analysis
+├── images/                # Exported visual plots and correlation heatmaps
+├── README.md              # Project documentation
+└── requirements.txt       # Python environment dependencies
+
 ```
 
 ---
 
-## Future Work
+## 🚀 Next Steps (Future Work)
 
-- Feature Engineering
-- Data Preprocessing
-- Churn Prediction using Machine Learning
-- Customer Segmentation
-- Model Evaluation and Deployment
+* **Categorical Encoding:** Translate text features into machine-readable formats using Label Encoding and One-Hot Encoding (`pd.get_dummies`).
+* **Machine Learning Implementation:** Train predictive classification models (Logistic Regression, Random Forest) to identify high-risk customers in real-time.
+* **Model Evaluation:** Optimize for Precision, Recall, and F1-Score to account for the imbalanced nature of the churn dataset.
+* **Customer Segmentation:** Apply unsupervised learning (K-Means Clustering) to group users based on behavior and lifetime value (CLTV).
