@@ -45,7 +45,6 @@ ChurnPredictionAndCustomerSegmentation/
 ├── data/                  # Raw and processed datasets (ignored in git)
 ├── notebooks/             # Jupyter notebooks for EDA and Model Training
 │   └── ChurnEDA.ipynb     # Comprehensive Exploratory Data Analysis
-├── images/                # Exported visual plots and correlation heatmaps
 ├── README.md              # Project documentation
 └── requirements.txt       # Python environment dependencies
 
