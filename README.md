@@ -36,7 +36,17 @@ The pipeline followed a deliberate, 5-stage optimization loop:
 **Conclusion:** The model successfully generalizes to unseen data. It will reliably identify roughly **76–77% of all customers who are at risk of churning**, giving the business time to proactively intervene and protect recurring revenue.
 
 ---
+### Key Contributions
 
+- Engineered an end-to-end customer analytics pipeline using **Python, Pandas, NumPy, Seaborn, and Scikit-Learn**, processing **7,043 customer records** across 33 features to uncover churn patterns and retention drivers.
+- Performed rigorous statistical analysis using **normalized cross-tabulations (`pd.crosstab`)**, identifying a critical **42.7% churn rate** among month-to-month contract users — vs. just **2.8%** on two-year contracts.
+- Detected and resolved **hidden string anomalies** in the `Total Charges` column using `pd.to_numeric(errors='coerce')`, uncovering 11 new-customer records incorrectly stored as blank strings instead of zero.
+- Optimized memory utilization through strategic datatype downcasting (**`int64` → `int8`**) while preserving full analytical accuracy.
+- Executed a **5-stage model optimization loop** — from a biased 51% Recall baseline to a cross-validated 76.6% True Mean Recall — with full business justification at every step.
+- Applied iterative **Feature Importance Analysis** and principled **Dimensionality Reduction**, proving that the two lowest-importance features (`Multiple Lines_No phone service`, `Phone Service_Yes`) were pure noise and safely removable.
+- Validated final model stability through **5-Fold Cross-Validation**, eliminating "lucky split" bias and confirming genuine generalization.
+
+---
 ## 📈 Business Impact Summary
 
 | Churn Driver | Finding | Recommendation |
@@ -122,18 +132,6 @@ Fiber Optic customers churn significantly more than DSL users — despite paying
 | Tenure vs. Churn Value | **-0.35** | Longer-tenured customers are less likely to churn |
 | Monthly Charges vs. Churn Value | **+0.19** | Higher bills correlate with higher churn risk |
 
-
----
-
-### Key Contributions
-
-- Engineered an end-to-end customer analytics pipeline using **Python, Pandas, NumPy, Seaborn, and Scikit-Learn**, processing **7,043 customer records** across 33 features to uncover churn patterns and retention drivers.
-- Performed rigorous statistical analysis using **normalized cross-tabulations (`pd.crosstab`)**, identifying a critical **42.7% churn rate** among month-to-month contract users — vs. just **2.8%** on two-year contracts.
-- Detected and resolved **hidden string anomalies** in the `Total Charges` column using `pd.to_numeric(errors='coerce')`, uncovering 11 new-customer records incorrectly stored as blank strings instead of zero.
-- Optimized memory utilization through strategic datatype downcasting (**`int64` → `int8`**) while preserving full analytical accuracy.
-- Executed a **5-stage model optimization loop** — from a biased 51% Recall baseline to a cross-validated 76.6% True Mean Recall — with full business justification at every step.
-- Applied iterative **Feature Importance Analysis** and principled **Dimensionality Reduction**, proving that the two lowest-importance features (`Multiple Lines_No phone service`, `Phone Service_Yes`) were pure noise and safely removable.
-- Validated final model stability through **5-Fold Cross-Validation**, eliminating "lucky split" bias and confirming genuine generalization.
 
 ---
 
