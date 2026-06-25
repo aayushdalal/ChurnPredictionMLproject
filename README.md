@@ -22,7 +22,7 @@ The final model — a hyperparameter-tuned Random Forest Classifier with cross-v
 Dataset:
 IBM Telco Customer Churn Dataset (7043 customers)
 
-## 🤖 Machine Learning Pipeline
+## 🤖 Model Development & Optimization
 
 ### Model Iteration History
 
