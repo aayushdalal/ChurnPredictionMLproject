@@ -19,6 +19,37 @@
 
 The final model — a hyperparameter-tuned Random Forest Classifier with cross-validated performance — achieves a **True Mean Recall of 76.6%**, meaning it reliably identifies roughly **3 out of 4** customers at risk of churning before they leave. This allows the business to proactively intervene with targeted retention offers rather than reacting after the loss.
 
+## 🤖 Machine Learning Pipeline
+
+### Model Iteration History
+
+The pipeline followed a deliberate, 5-stage optimization loop:
+
+| Stage | Model | Accuracy | Precision (Churn) | Recall (Churn) | F1-Score (Churn) |
+|---|---|---|---|---|---|
+| **V1** | Baseline Random Forest | **79%** | 0.66 | 0.51 | 0.58 |
+| **V2** | + Class Weight Balancing | 79% | 0.61 | 0.69 | 0.65 |
+| **V3** | + Hyperparameter Tuning (`max_depth=10`) | 77% | 0.57 | **0.78** | **0.66** |
+| **V4** | + Feature Selection (drop bottom 2) | 77% | ~0.57 | ~0.79 | ~0.66 |
+| **V5 (Final)** | 5-Fold Cross-Validation (`n_estimators=500`) | 76.7% | 0.543 | **76.6%** | — |
+
+**Conclusion:** The model successfully generalizes to unseen data. It will reliably identify roughly **76–77% of all customers who are at risk of churning**, giving the business time to proactively intervene and protect recurring revenue.
+
+---
+
+## 📈 Business Impact Summary
+
+| Churn Driver | Finding | Recommendation |
+|---|---|---|
+| **Contract Type** | Month-to-month users churn at 42.7% | Incentivize upgrades to annual contracts |
+| **Monthly Charges** | Churners pay ~$15/month more (median) | Loyalty discounts for premium tiers |
+| **Tech Support** | No-support customers churn at much higher rates | Include basic tech support in base plans |
+| **Payment Method** | Electronic check users churn far more | Offer discount for auto-pay enrollment |
+| **Fiber Optic** | Fiber customers churn more than DSL users | Investigate service quality in high-churn areas |
+| **Tenure** | New customers (low tenure) are highest risk | Launch targeted 0–6 month onboarding program |
+
+---
+
 ### Key Contributions
 
 - Engineered an end-to-end customer analytics pipeline using **Python, Pandas, NumPy, Seaborn, and Scikit-Learn**, processing **7,043 customer records** across 33 features to uncover churn patterns and retention drivers.
@@ -133,37 +164,6 @@ Fiber Optic customers churn significantly more than DSL users — despite paying
 |---|---|---|
 | Tenure vs. Churn Value | **-0.35** | Longer-tenured customers are less likely to churn |
 | Monthly Charges vs. Churn Value | **+0.19** | Higher bills correlate with higher churn risk |
-
----
-
-## 🤖 Machine Learning Pipeline
-
-### Model Iteration History
-
-The pipeline followed a deliberate, 5-stage optimization loop:
-
-| Stage | Model | Accuracy | Precision (Churn) | Recall (Churn) | F1-Score (Churn) |
-|---|---|---|---|---|---|
-| **V1** | Baseline Random Forest | **79%** | 0.66 | 0.51 | 0.58 |
-| **V2** | + Class Weight Balancing | 79% | 0.61 | 0.69 | 0.65 |
-| **V3** | + Hyperparameter Tuning (`max_depth=10`) | 77% | 0.57 | **0.78** | **0.66** |
-| **V4** | + Feature Selection (drop bottom 2) | 77% | ~0.57 | ~0.79 | ~0.66 |
-| **V5 (Final)** | 5-Fold Cross-Validation (`n_estimators=500`) | 76.7% | 0.543 | **76.6%** | — |
-
-**Conclusion:** The model successfully generalizes to unseen data. It will reliably identify roughly **76–77% of all customers who are at risk of churning**, giving the business time to proactively intervene and protect recurring revenue.
-
----
-
-## 📈 Business Impact Summary
-
-| Churn Driver | Finding | Recommendation |
-|---|---|---|
-| **Contract Type** | Month-to-month users churn at 42.7% | Incentivize upgrades to annual contracts |
-| **Monthly Charges** | Churners pay ~$15/month more (median) | Loyalty discounts for premium tiers |
-| **Tech Support** | No-support customers churn at much higher rates | Include basic tech support in base plans |
-| **Payment Method** | Electronic check users churn far more | Offer discount for auto-pay enrollment |
-| **Fiber Optic** | Fiber customers churn more than DSL users | Investigate service quality in high-churn areas |
-| **Tenure** | New customers (low tenure) are highest risk | Launch targeted 0–6 month onboarding program |
 
 ---
 
