@@ -9,7 +9,7 @@
 | Recall           |         76.6% |
 | F1-Score         |         63.7% |
 | Cross Validation |        5-Fold |
-| Model for churn prediciton            | Random Forest |
+| Model for Churn Prediciton            | Random Forest |
 | Model for Customer Segmentation         | K-means |
 
 
