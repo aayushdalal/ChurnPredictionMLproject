@@ -1,4 +1,4 @@
-# 📡 Telco Customer Churn Prediction & Retention Strategy
+# Telco Customer Churn Prediction & Retention Strategy
 
 > **An end-to-end Machine Learning pipeline** to identify at-risk telecom customers and uncover the data-driven factors that drive customer attrition — built on 7,043 real customer records using Python, Scikit-Learn, and a 5-stage iterative modeling approach.
 
