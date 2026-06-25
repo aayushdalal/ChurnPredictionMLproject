@@ -20,6 +20,11 @@ The pipeline includes extensive data cleaning, memory optimization, statistical 
 
 * Trained and evaluated a **Random Forest Classifier** to predict customer churn, while actively improving **Accuracy, Precision, Recall, and F1-Score** through feature engineering and model optimization.
 
+> *"To ensure the model's robustness and protect against selection bias from a single train-test split, I implemented a 5-Fold Cross-Validation using the optimal hyperparameters (n_estimators=500, max_depth=10, class_weight='balanced').* >
+> *The cross-validation revealed a stable performance across all folds. While individual fold Recalls fluctuated between 73.5% and 81.2% due to natural data variance, the model achieved a **True Mean Recall of 76.6%** and a **True Mean Accuracy of 76.7%**.* >
+> *Conclusion: The model successfully generalizes to unseen data. It will reliably identify roughly 76-77% of all customers who are at risk of churning, allowing the business to proactively intervene and protect recurring revenue."*
+
+
 ---
 
 ## 🛠️ Technology Stack & Environment
