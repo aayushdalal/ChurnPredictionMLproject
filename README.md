@@ -42,6 +42,28 @@ Before training predictive models, extensive preprocessing and optimization tech
 
 * **Data Cleaning Pipeline:** Handled missing values, inconsistent data formats, categorical preprocessing requirements, and feature quality validation to ensure model-ready datasets.
 
+### 📝 Project Checkpoint: Model Optimization & Business Impact
+
+**1. The Objective**
+The primary objective of this iteration was to shift the model's focus from general accuracy to **Recall (Sensitivity)** for Class `1` (Churners), as missing a churner carries a much higher business cost than falsely flagging a loyal customer.
+
+**2. Model Iteration History**
+
+| Model Iteration | Overall Accuracy | Precision (Churn) | Recall (Churn) | F1-Score (Churn) |
+| --- | --- | --- | --- | --- |
+| **V1: Baseline Random Forest** | **79%** | 0.66 | 0.51 | 0.58 |
+| **V2: Class Weight = Balanced** | 79% | 0.61 | 0.69 | 0.65 |
+| **V3: Hyperparameter Tuned + Balanced** | 77% | 0.57 | **0.78** | **0.66** |
+
+**3. Performance Analysis & Business Justification**
+
+* **The Baseline Trap (V1):** The initial model achieved the highest overall accuracy (79%) but was heavily biased toward the majority class (Stayed). It suffered from a severe False Negative rate, missing nearly half (Recall: 0.51) of all actual churners.
+* **Addressing the Imbalance (V2):** By injecting the `class_weight='balanced'` parameter, we mathematically penalized the algorithm for missing churners. This successfully raised Recall to 0.69 and the F1-Score to 0.65, proving the model was learning the minority class better.
+* **The Final Polish (V3):** We applied Hyperparameter Tuning (`max_depth=10`, `n_estimators=100`) to prevent the model from memorizing noise.
+* *The Result:* Recall spiked to **0.78**.
+* *The Trade-off:* We lost 4% Precision and 2% overall Accuracy.
+* *The Verdict:* This is a highly successful trade-off. We are now successfully identifying 78% of all flight-risk customers. The slight increase in False Positives (lower Precision) simply means the marketing team will send out a few more retention discounts to safe customers—a tiny operational cost compared to losing the recurring revenue of the churners we are now catching.
+
 ---
 
 ## 📊 Key Business Insights (Statistical Findings)
