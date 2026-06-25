@@ -19,6 +19,9 @@
 
 The final model — a hyperparameter-tuned Random Forest Classifier with cross-validated performance — achieves a **True Mean Recall of 76.6%**, meaning it reliably identifies roughly **3 out of 4** customers at risk of churning before they leave. This allows the business to proactively intervene with targeted retention offers rather than reacting after the loss.
 
+Dataset:
+IBM Telco Customer Churn Dataset (7043 customers)
+
 ## 🤖 Machine Learning Pipeline
 
 ### Model Iteration History
