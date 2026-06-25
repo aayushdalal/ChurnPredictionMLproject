@@ -50,49 +50,6 @@ The pipeline followed a deliberate, 5-stage optimization loop:
 
 ---
 
-### Key Contributions
-
-- Engineered an end-to-end customer analytics pipeline using **Python, Pandas, NumPy, Seaborn, and Scikit-Learn**, processing **7,043 customer records** across 33 features to uncover churn patterns and retention drivers.
-- Performed rigorous statistical analysis using **normalized cross-tabulations (`pd.crosstab`)**, identifying a critical **42.7% churn rate** among month-to-month contract users — vs. just **2.8%** on two-year contracts.
-- Detected and resolved **hidden string anomalies** in the `Total Charges` column using `pd.to_numeric(errors='coerce')`, uncovering 11 new-customer records incorrectly stored as blank strings instead of zero.
-- Optimized memory utilization through strategic datatype downcasting (**`int64` → `int8`**) while preserving full analytical accuracy.
-- Executed a **5-stage model optimization loop** — from a biased 51% Recall baseline to a cross-validated 76.6% True Mean Recall — with full business justification at every step.
-- Applied iterative **Feature Importance Analysis** and principled **Dimensionality Reduction**, proving that the two lowest-importance features (`Multiple Lines_No phone service`, `Phone Service_Yes`) were pure noise and safely removable.
-- Validated final model stability through **5-Fold Cross-Validation**, eliminating "lucky split" bias and confirming genuine generalization.
-
----
-
-## 🛠️ Technology Stack
-
-| Category | Libraries |
-|---|---|
-| **Language** | Python 3 |
-| **Data Engineering** | Pandas, NumPy |
-| **Machine Learning** | Scikit-Learn (RandomForestClassifier, cross_val_score) |
-| **Visualization** | Matplotlib, Seaborn |
-| **Environment** | Jupyter Notebooks (VS Code) |
-
----
-
-## 📂 Project Structure
-
-```text
-ChurnPredictionAndCustomerSegmentation/
-│
-├── data/
-│   ├── Telco_customer_churn.xlsx       ← Raw source data
-│   └── processed_churn_data.csv        ← Cleaned & encoded data (output of EDA)
-│
-├── notebooks/
-│   ├── ChurnEDA.ipynb                  ← Data cleaning, EDA, preprocessing, encoding
-│   └── MLimplementation.ipynb         ← Model training, optimization, cross-validation
-│
-├── README.md
-└── requirements.txt
-```
-
----
-
 ## ⚙️ Data Engineering & Preprocessing
 
 ### Memory Optimization
@@ -164,6 +121,50 @@ Fiber Optic customers churn significantly more than DSL users — despite paying
 |---|---|---|
 | Tenure vs. Churn Value | **-0.35** | Longer-tenured customers are less likely to churn |
 | Monthly Charges vs. Churn Value | **+0.19** | Higher bills correlate with higher churn risk |
+
+
+---
+
+### Key Contributions
+
+- Engineered an end-to-end customer analytics pipeline using **Python, Pandas, NumPy, Seaborn, and Scikit-Learn**, processing **7,043 customer records** across 33 features to uncover churn patterns and retention drivers.
+- Performed rigorous statistical analysis using **normalized cross-tabulations (`pd.crosstab`)**, identifying a critical **42.7% churn rate** among month-to-month contract users — vs. just **2.8%** on two-year contracts.
+- Detected and resolved **hidden string anomalies** in the `Total Charges` column using `pd.to_numeric(errors='coerce')`, uncovering 11 new-customer records incorrectly stored as blank strings instead of zero.
+- Optimized memory utilization through strategic datatype downcasting (**`int64` → `int8`**) while preserving full analytical accuracy.
+- Executed a **5-stage model optimization loop** — from a biased 51% Recall baseline to a cross-validated 76.6% True Mean Recall — with full business justification at every step.
+- Applied iterative **Feature Importance Analysis** and principled **Dimensionality Reduction**, proving that the two lowest-importance features (`Multiple Lines_No phone service`, `Phone Service_Yes`) were pure noise and safely removable.
+- Validated final model stability through **5-Fold Cross-Validation**, eliminating "lucky split" bias and confirming genuine generalization.
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Libraries |
+|---|---|
+| **Language** | Python 3 |
+| **Data Engineering** | Pandas, NumPy |
+| **Machine Learning** | Scikit-Learn (RandomForestClassifier, cross_val_score) |
+| **Visualization** | Matplotlib, Seaborn |
+| **Environment** | Jupyter Notebooks (VS Code) |
+
+---
+
+## 📂 Project Structure
+
+```text
+ChurnPredictionAndCustomerSegmentation/
+│
+├── data/
+│   ├── Telco_customer_churn.xlsx       ← Raw source data
+│   └── processed_churn_data.csv        ← Cleaned & encoded data (output of EDA)
+│
+├── notebooks/
+│   ├── ChurnEDA.ipynb                  ← Data cleaning, EDA, preprocessing, encoding
+│   └── MLimplementation.ipynb         ← Model training, optimization, cross-validation
+│
+├── README.md
+└── requirements.txt
+```
 
 ---
 
