@@ -222,9 +222,9 @@ After training the churn prediction model, predicted churn probabilities were co
 
 | Cluster | Name | Avg. Tenure | Avg. Monthly Charges | Avg. Total Charges | Avg. Churn Probability |
 |---|---|---|---|---|---|
-| **Cluster 1** | 🚨 High Risk New Customers | 11 months | $71.72 | $885.95 | **71.4%** |
-| **Cluster 0** | 💎 Loyal Premium Customers | 58 months | $90.34 | $5,273.39 | 25.2% |
-| **Cluster 2** | 🛡️ Budget Loyal Customers | 32 months | $32.49 | $1,043.12 | **13.8%** |
+| **Cluster 1** |  High Risk New Customers | 11 months | $71.72 | $885.95 | **71.4%** |
+| **Cluster 0** |  Loyal Premium Customers | 58 months | $90.34 | $5,273.39 | 25.2% |
+| **Cluster 2** |  Budget Loyal Customers | 32 months | $32.49 | $1,043.12 | **13.8%** |
 
 ### Cluster Business Insights & Action Plans
 
