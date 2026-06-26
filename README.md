@@ -207,11 +207,16 @@ At the default 0.50 threshold, the model predicts "churn" only when it is at lea
 
 ## 👥 Customer Segmentation (K-Means, k=3)
 
+
 ### Methodology
 
 After training the churn prediction model, predicted churn probabilities were combined with three key customer features — `Tenure Months`, `Monthly Charges`, and `Total Charges` — to create a 4-dimensional segmentation dataset. Features were standardized using `StandardScaler` before clustering.
+<img width="713" height="525" alt="image" src="https://github.com/user-attachments/assets/dfa0a899-2aec-4758-a69f-8580d64221db" />
 
 **Optimal k validation:** Both the Elbow Method (inertia curve) and Silhouette Score analysis confirmed **k=3** as the optimal number of clusters. The silhouette score peaked at k=3, providing mathematical confirmation beyond visual inspection.
+
+<img width="703" height="530" alt="image" src="https://github.com/user-attachments/assets/d73c84f6-f291-43fb-aecb-fab244e6278b" />
+
 
 ### Cluster Profiles
 
@@ -238,6 +243,11 @@ Mid-tenure customers (~32 months) on cheap, basic plans ($32/month) with a very 
 ### Segment Scatter Plot
 
 The final scatter plot (Total Charges vs. Churn Probability, colored by Cluster Name with `alpha=0.6`) visually confirmed the three distinct personas and provided the marketing team with an intuitive, at-a-glance retention playbook across all 7,043 customers.
+<img width="850" height="552" alt="image" src="https://github.com/user-attachments/assets/e30ed0db-835b-48e3-9879-f428bfd7905f" />
+<img width="850" height="553" alt="image" src="https://github.com/user-attachments/assets/c4cd57c2-2819-4341-92d7-5a18afcc3759" />
+<img width="850" height="553" alt="image" src="https://github.com/user-attachments/assets/a5405d34-58fc-4510-afdd-c9d6cf6ba5ee" />
+
+
 
 ---
 
